@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .btn {
+                @apply p-4 rounded-xl font-semibold text-lg transition-all duration-200 active:scale-95 flex items-center justify-center select-none cursor-pointer shadow-sm border border-transparent;
+            }
+            .btn-num {
+                @apply bg-slate-50 hover:bg-slate-100 text-slate-800 border-slate-200/50 hover:shadow;
+            }
+            .btn-op {
+                @apply bg-sky-100 hover:bg-sky-200 text-sky-700 hover:shadow;
+            }
+            .btn-eq {
+                @apply bg-sky-500 hover:bg-sky-600 text-white shadow-md hover:shadow-lg;
+            }
+            .btn-ac {
+                @apply bg-red-100 hover:bg-red-200 text-red-600 hover:shadow;
+            }
+            .btn-del {
+                @apply bg-slate-200 hover:bg-slate-300 text-slate-700 hover:shadow;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-100 min-h-screen flex items-center justify-center p-4 font-sans">
+
+    <!-- Contenedor de la Calculadora -->
+    <div class="bg-white p-6 rounded-3xl shadow-xl shadow-slate-200/50 w-[300px] border border-slate-100">
+        
+        <!-- Pantalla -->
+        <div class="mb-6 text-right bg-slate-50 p-4 rounded-2xl border border-slate-200 shadow-inner">
+            <div id="expressionDisplay" class="text-slate-400 text-sm h-5 truncate tracking-wider"></div>
+            <div id="currentDisplay" class="text-slate-900 text-4xl font-bold mt-2 truncate tracking-tight">0</div>
+        </div>
+
+        <!-- Teclado Grid -->
+        <div class="grid grid-cols-4 gap-3">
+            <!-- Fila 1 -->
+            <button class="btn btn-ac col-span-2" onclick="clearAll()">AC</button>
+            <button class="btn btn-del" onclick="deleteLast()" aria-label="Borrar último">⌫</button>
+            <button class="btn btn-op" onclick="chooseOperation('/')" aria-label="Dividir">÷</button>
+
+            <!-- Fila 2 -->
+            <button class="btn btn-num" onclick="appendNumber('7')">7</button>
+            <button class="btn btn-num" onclick="appendNumber('8')">8</button>
+            <button class="btn btn-num" onclick="appendNumber('9')">9</button>
+            <button class="btn btn-op" onclick="chooseOperation('*')" aria-label="Multiplicar">×</button>
+
+            <!-- Fila 3 -->
+            <button class="btn btn-num" onclick="appendNumber('4')">4</button>
+            <button class="btn btn-num" onclick="appendNumber('5')">5</button>
+            <button class="btn btn-num" onclick="appendNumber('6')">6</button>
+            <button class="btn btn-op" onclick="chooseOperation('-')" aria-label="Restar">−</button>
+
+            <!-- Fila 4 -->
+            <button class="btn btn-num" onclick="appendNumber('1')">1</button>
+            <button class="btn btn-num" onclick="appendNumber('2')">2</button>
+            <button class="btn btn-num" onclick="appendNumber('3')">3</button>
+            <button class="btn btn-op" onclick="chooseOperation('+')" aria-label="Sumar">+</button>
+
+            <!-- Fila 5 -->
+            <button class="btn btn-num col-span-2" onclick="appendNumber('0')">0</button>
+            <button class="btn btn-num" onclick="appendNumber('.')">.</button>
+            <button class="btn btn-eq" onclick="compute()" aria-label="Igual">=</button>
+        </div>
+    </div>
+
+    <!-- Lógica JavaScript -->
+    <script>
+        let currentOperand = '';
+        let previousOperand = '';
+        let operation = undefined;
+        let shouldResetScreen = false;
+
+        const currentDisplay = document.getElementById('currentDisplay');
+        const expressionDisplay = document.getElementById('expressionDisplay');
+
+        // Formatear el número para que no tenga demasiados decimales ni errores de flotante
+        function formatNumber(numStr) {
+            if (numStr === '') return '';
+            const number = parseFloat(numStr);
+            if (isNaN(number)) return '';
+            
+            // Si tiene punto decimal, dividimos la parte entera y decimal
+            if (numStr.includes('.')) {
+                const parts = numStr.split('.');
+                return parts[0] + '.' + parts[1];
+            }
+            return number.toString();
+        }
+
+        function updateDisplay() {
+            currentDisplay.innerText = currentOperand === '' ? '0' : currentOperand;
+            
+            if (operation != null) {
+                let opSymbol = operation;
+                if (opSymbol === '*') opSymbol = '×';
+                if (opSymbol === '/') opSymbol = '÷';
+                if (opSymbol === '-') opSymbol = '−';
+                expressionDisplay.innerText = `${previousOperand} ${opSymbol}`;
+            } else {
+                expressionDisplay.innerText = '';
+            }
+        }
+
+        function clearAll() {
+            currentOperand = '';
+            previousOperand = '';
+            operation = undefined;
+            updateDisplay();
+        }
+
+        function deleteLast() {
+            if (shouldResetScreen) return;
+            currentOperand = currentOperand.toString().slice(0, -1);
+            updateDisplay();
+        }
+
+        function appendNumber(number) {
+            // Prevenir múltiples puntos
+            if (number === '.' && currentOperand.includes('.')) return;
+            
+            // Si la pantalla debe reiniciarse (después de un '='), limpiamos
+            if (shouldResetScreen) {
+                currentOperand = '';
+                shouldResetScreen = false;
+            }
+
+            // Evitar ceros a la izquierda múltiples
+            if (currentOperand === '0' && number !== '.') {
+                currentOperand = number;
+            } else {
+                currentOperand = currentOperand.toString() + number.toString();
+            }
+            
+            updateDisplay();
+        }
+
+        function chooseOperation(op) {
+            if (currentOperand === '' && previousOperand === '') return;
+            
+            // Si queremos cambiar la operación en curso
+            if (currentOperand === '' && previousOperand !== '') {
+                operation = op;
+                updateDisplay();
+                return;
+            }
+            
+            // Si ya hay una operación pendiente, calculamos antes de aplicar la nueva
+            if (previousOperand !== '') {
+                compute();
+            }
+            
+            operation = op;
+            previousOperand = currentOperand;
+            currentOperand = '';
+            updateDisplay();
+        }
+
+        function compute() {
+            let computation;
+            const prev = parseFloat(previousOperand);
+            const current = parseFloat(currentOperand);
+            
+            if (isNaN(prev) || isNaN(current)) return;
+
+            switch (operation) {
+                case '+': computation = prev + current; break;
+                case '-': computation = prev - current; break;
+                case '*': computation = prev * current; break;
+                case '/': 
+                    if (current === 0) {
+                        alert("No se puede dividir por cero");
+                        clearAll();
+                        return;
+                    }
+                    computation = prev / current; 
+                    break;
+                default: return;
+            }
+
+            // Uso de toFixed(10) para evitar problemas de precisión flotante y luego eliminar ceros innecesarios
+            let resultStr = computation.toFixed(10);
+            resultStr = parseFloat(resultStr).toString();
+
+            currentOperand = resultStr;
+            operation = undefined;
+            previousOperand = '';
+            shouldResetScreen = true;
+            updateDisplay();
+        }
+
+        // Soporte de Teclado
+        document.addEventListener('keydown', (e) => {
+            if (e.key >= '0' && e.key <= '9') appendNumber(e.key);
+            if (e.key === '.' || e.key === ',') appendNumber('.');
+            if (e.key === '=' || e.key === 'Enter') {
+                e.preventDefault();
+                compute();
+            }
+            if (e.key === 'Backspace') deleteLast();
+            if (e.key === 'Escape') clearAll();
+            if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/') {
+                chooseOperation(e.key);
+            }
+        });
+    </script>
+</body>
+
+</html>
