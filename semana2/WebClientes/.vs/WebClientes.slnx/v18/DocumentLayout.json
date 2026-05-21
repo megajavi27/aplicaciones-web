@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\PCSIS8\\Documents\\GitHub\\WebClientes\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EE990E92-DD89-8E4A-5A07-083F436F50E3}|WebClientes\\WebClientes.csproj|d:\\pcsis8\\documents\\github\\webclientes\\webclientes\\views\\clientemodel\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EE990E92-DD89-8E4A-5A07-083F436F50E3}|WebClientes\\WebClientes.csproj|solutionrelative:webclientes\\views\\clientemodel\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE990E92-DD89-8E4A-5A07-083F436F50E3}|WebClientes\\WebClientes.csproj|d:\\pcsis8\\documents\\github\\webclientes\\webclientes\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE990E92-DD89-8E4A-5A07-083F436F50E3}|WebClientes\\WebClientes.csproj|solutionrelative:webclientes\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE990E92-DD89-8E4A-5A07-083F436F50E3}|WebClientes\\WebClientes.csproj|d:\\pcsis8\\documents\\github\\webclientes\\webclientes\\models\\clientemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE990E92-DD89-8E4A-5A07-083F436F50E3}|WebClientes\\WebClientes.csproj|solutionrelative:webclientes\\models\\clientemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\PCSIS8\\Documents\\GitHub\\WebClientes\\WebClientes\\Views\\ClienteModel\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebClientes\\Views\\ClienteModel\\Index.cshtml",
+              "ToolTip": "D:\\PCSIS8\\Documents\\GitHub\\WebClientes\\WebClientes\\Views\\ClienteModel\\Index.cshtml",
+              "RelativeToolTip": "WebClientes\\Views\\ClienteModel\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-21T22:03:08.66Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ClienteController.cs",
+              "DocumentMoniker": "D:\\PCSIS8\\Documents\\GitHub\\WebClientes\\WebClientes\\Controllers\\ClienteController.cs",
+              "RelativeDocumentMoniker": "WebClientes\\Controllers\\ClienteController.cs",
+              "ToolTip": "D:\\PCSIS8\\Documents\\GitHub\\WebClientes\\WebClientes\\Controllers\\ClienteController.cs",
+              "RelativeToolTip": "WebClientes\\Controllers\\ClienteController.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAwBwAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-21T16:11:24.047Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ClienteModel.cs",
+              "DocumentMoniker": "D:\\PCSIS8\\Documents\\GitHub\\WebClientes\\WebClientes\\Models\\ClienteModel.cs",
+              "RelativeDocumentMoniker": "WebClientes\\Models\\ClienteModel.cs",
+              "ToolTip": "D:\\PCSIS8\\Documents\\GitHub\\WebClientes\\WebClientes\\Models\\ClienteModel.cs",
+              "RelativeToolTip": "WebClientes\\Models\\ClienteModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-21T15:46:32.477Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
