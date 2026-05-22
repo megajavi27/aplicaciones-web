@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "MsvDjyOL8AA=",
+  "dgSpecHash": "Uvg6rLn/trM=",
   "success": true,
-  "projectFilePath": "D:\\BIBLIOTECAS\\Documents\\GitHub\\aplicaciones-web\\semana2\\WebClientes\\WebClientes\\WebClientes.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\PCSIS8\\Documents\\GitHub\\aplicaciones-web\\semana2\\WebClientes\\WebClientes\\WebClientes.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\USER\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.0\\microsoft.entityframeworkcore.9.0.0.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\9.0.0\\microsoft.entityframeworkcore.abstractions.9.0.0.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\9.0.0\\microsoft.entityframeworkcore.analyzers.9.0.0.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\9.0.0\\microsoft.entityframeworkcore.relational.9.0.0.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\mysqlconnector\\2.4.0\\mysqlconnector.2.4.0.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\9.0.0\\pomelo.entityframeworkcore.mysql.9.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

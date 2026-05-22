@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebClientes.Models
 {
     public class ClienteModel
     {
-        //[key]     para definir la clave primaria
+        [Key]
         public int id { get; set; }
 
         [Display(Name = "Nombres del Cliente")]

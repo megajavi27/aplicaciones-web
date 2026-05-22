@@ -1,103 +1,149 @@
-﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using WebClientes.Data;
 using WebClientes.Models;
 
 namespace WebClientes.Controllers
 {
     public class ClienteController : Controller
     {
-        List<ClienteModel> _lista_Clientes = new List<ClienteModel>() {
-            new ClienteModel{
-                id = 1,
-                Nombres_Cliente="Luis Antonio",
-                Apellidos = "Llerena Ocaña",
-                Direccion = "Ambato",
-                Telefono = "0987654321",
-                Correo = "lleroc1@gmail.com"
-            },
-            new ClienteModel{
-                id = 2,
-                Nombres_Cliente="Otro Luis",
-                Apellidos = "Otro Llerena",
-                Direccion = "Quero",
-                Telefono = "0999999999",
-                Correo = "otro@gmail.com"
+        private readonly AppDbContext _context;
+
+        public ClienteController(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        // GET: Cliente
+        public async Task<IActionResult> Index()
+        {
+            var clientes = await _context.Clientes.ToListAsync();
+            return View(clientes);
+        }
+
+        // GET: Cliente/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
             }
-        };
 
-        // GET: ClienteController
-        public ActionResult Index()
-        {
-            return View(_lista_Clientes);
+            var cliente = await _context.Clientes
+                .FirstOrDefaultAsync(m => m.id == id);
+            if (cliente == null)
+            {
+                return NotFound();
+            }
+
+            return View(cliente);
         }
 
-        // GET: ClienteController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: ClienteController/Create
-        public ActionResult Create()
+        // GET: Cliente/Create
+        public IActionResult Create()
         {
             return View();
         }
 
-        // POST: ClienteController/Create
+        // POST: Cliente/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<IActionResult> Create([Bind("id,Nombres_Cliente,Apellidos,Direccion,Telefono,Correo")] ClienteModel cliente)
         {
-            try
+            if (ModelState.IsValid)
             {
+                _context.Add(cliente);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            catch
-            {
-                return View();
-            }
+            return View(cliente);
         }
 
-        // GET: ClienteController/Edit/5
-        public ActionResult Edit(int id)
+        // GET: Cliente/Edit/5
+        public async Task<IActionResult> Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var cliente = await _context.Clientes.FindAsync(id);
+            if (cliente == null)
+            {
+                return NotFound();
+            }
+            return View(cliente);
         }
 
-        // POST: ClienteController/Edit/5
+        // POST: Cliente/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<IActionResult> Edit(int id, [Bind("id,Nombres_Cliente,Apellidos,Direccion,Telefono,Correo")] ClienteModel cliente)
         {
-            try
+            if (id != cliente.id)
             {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(cliente);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ClienteExists(cliente.id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
                 return RedirectToAction(nameof(Index));
             }
-            catch
-            {
-                return View();
-            }
+            return View(cliente);
         }
 
-        // GET: ClienteController/Delete/5
-        public ActionResult Delete(int id)
+        // GET: Cliente/Delete/5
+        public async Task<IActionResult> Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var cliente = await _context.Clientes
+                .FirstOrDefaultAsync(m => m.id == id);
+            if (cliente == null)
+            {
+                return NotFound();
+            }
+
+            return View(cliente);
         }
 
-        // POST: ClienteController/Delete/5
-        [HttpPost]
+        // POST: Cliente/Delete/5
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            try
+            var cliente = await _context.Clientes.FindAsync(id);
+            if (cliente != null)
             {
-                return RedirectToAction(nameof(Index));
+                _context.Clientes.Remove(cliente);
             }
-            catch
-            {
-                return View();
-            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool ClienteExists(int id)
+        {
+            return _context.Clientes.Any(e => e.id == id);
         }
     }
 }

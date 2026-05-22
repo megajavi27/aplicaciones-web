@@ -1,14 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\BIBLIOTECAS\\Documents\\GitHub\\aplicaciones-web\\semana2\\WebClientes\\",
+  "WorkspaceRootPath": "D:\\PCSIS8\\Documents\\GitHub\\aplicaciones-web\\semana2\\WebClientes\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EE990E92-DD89-8E4A-5A07-083F436F50E3}|WebClientes\\WebClientes.csproj|d:\\bibliotecas\\documents\\github\\aplicaciones-web\\semana2\\webclientes\\webclientes\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EE990E92-DD89-8E4A-5A07-083F436F50E3}|WebClientes\\WebClientes.csproj|solutionrelative:webclientes\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\PCSIS8\\Documents\\GitHub\\aplicaciones-web\\semana2\\WebClientes\\WebClientes\\Views\\Cliente\\Create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebClientes\\Views\\Cliente\\Create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EE990E92-DD89-8E4A-5A07-083F436F50E3}|WebClientes\\WebClientes.csproj|d:\\bibliotecas\\documents\\github\\aplicaciones-web\\semana2\\webclientes\\webclientes\\models\\clientemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EE990E92-DD89-8E4A-5A07-083F436F50E3}|WebClientes\\WebClientes.csproj|solutionrelative:webclientes\\models\\clientemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\PCSIS8\\Documents\\GitHub\\aplicaciones-web\\semana2\\WebClientes\\WebClientes\\Views\\Shared\\_ValidationScriptsPartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebClientes\\Views\\Shared\\_ValidationScriptsPartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\PCSIS8\\Documents\\GitHub\\aplicaciones-web\\semana2\\WebClientes\\WebClientes\\Views\\_ViewImports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebClientes\\Views\\_ViewImports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\PCSIS8\\Documents\\GitHub\\aplicaciones-web\\semana2\\WebClientes\\WebClientes\\Controllers\\ClienteController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebClientes\\Controllers\\ClienteController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\PCSIS8\\Documents\\GitHub\\aplicaciones-web\\semana2\\WebClientes\\WebClientes\\Models\\ClienteModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebClientes\\Models\\ClienteModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,23 +35,59 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ClienteController.cs",
-              "DocumentMoniker": "D:\\BIBLIOTECAS\\Documents\\GitHub\\aplicaciones-web\\semana2\\WebClientes\\WebClientes\\Controllers\\ClienteController.cs",
-              "RelativeDocumentMoniker": "WebClientes\\Controllers\\ClienteController.cs",
-              "ToolTip": "D:\\BIBLIOTECAS\\Documents\\GitHub\\aplicaciones-web\\semana2\\WebClientes\\WebClientes\\Controllers\\ClienteController.cs",
-              "RelativeToolTip": "WebClientes\\Controllers\\ClienteController.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAAwBwAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-21T16:11:24.047Z",
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\PCSIS8\\Documents\\GitHub\\aplicaciones-web\\semana2\\WebClientes\\WebClientes\\Views\\Cliente\\Create.cshtml",
+              "RelativeDocumentMoniker": "WebClientes\\Views\\Cliente\\Create.cshtml",
+              "ToolTip": "D:\\PCSIS8\\Documents\\GitHub\\aplicaciones-web\\semana2\\WebClientes\\WebClientes\\Views\\Cliente\\Create.cshtml",
+              "RelativeToolTip": "WebClientes\\Views\\Cliente\\Create.cshtml",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-22T16:53:05.962Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "D:\\PCSIS8\\Documents\\GitHub\\aplicaciones-web\\semana2\\WebClientes\\WebClientes\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "WebClientes\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "D:\\PCSIS8\\Documents\\GitHub\\aplicaciones-web\\semana2\\WebClientes\\WebClientes\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "WebClientes\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-22T16:48:15.328Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "D:\\PCSIS8\\Documents\\GitHub\\aplicaciones-web\\semana2\\WebClientes\\WebClientes\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "WebClientes\\Views\\_ViewImports.cshtml",
+              "ToolTip": "D:\\PCSIS8\\Documents\\GitHub\\aplicaciones-web\\semana2\\WebClientes\\WebClientes\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "WebClientes\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-22T16:48:04.955Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ClienteController.cs",
+              "DocumentMoniker": "D:\\PCSIS8\\Documents\\GitHub\\aplicaciones-web\\semana2\\WebClientes\\WebClientes\\Controllers\\ClienteController.cs",
+              "RelativeDocumentMoniker": "WebClientes\\Controllers\\ClienteController.cs",
+              "ToolTip": "D:\\PCSIS8\\Documents\\GitHub\\aplicaciones-web\\semana2\\WebClientes\\WebClientes\\Controllers\\ClienteController.cs",
+              "RelativeToolTip": "WebClientes\\Controllers\\ClienteController.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAAAAsAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-21T16:11:24.047Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "ClienteModel.cs",
-              "DocumentMoniker": "D:\\BIBLIOTECAS\\Documents\\GitHub\\aplicaciones-web\\semana2\\WebClientes\\WebClientes\\Models\\ClienteModel.cs",
+              "DocumentMoniker": "D:\\PCSIS8\\Documents\\GitHub\\aplicaciones-web\\semana2\\WebClientes\\WebClientes\\Models\\ClienteModel.cs",
               "RelativeDocumentMoniker": "WebClientes\\Models\\ClienteModel.cs",
-              "ToolTip": "D:\\BIBLIOTECAS\\Documents\\GitHub\\aplicaciones-web\\semana2\\WebClientes\\WebClientes\\Models\\ClienteModel.cs",
+              "ToolTip": "D:\\PCSIS8\\Documents\\GitHub\\aplicaciones-web\\semana2\\WebClientes\\WebClientes\\Models\\ClienteModel.cs",
               "RelativeToolTip": "WebClientes\\Models\\ClienteModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

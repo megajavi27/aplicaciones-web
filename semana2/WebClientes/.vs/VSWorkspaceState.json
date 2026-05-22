@@ -3,8 +3,11 @@
     "",
     "\\WebClientes",
     "\\WebClientes\\Views",
-    "\\WebClientes\\Views\\ClienteModel"
+    "\\WebClientes\\Views\\Cliente",
+    "\\WebClientes\\Views\\Shared",
+    "\\WebClientes\\wwwroot",
+    "\\WebClientes\\wwwroot\\lib",
+    "\\WebClientes\\wwwroot\\lib\\jquery-validation-unobtrusive"
   ],
-  "SelectedNode": "\\WebClientes\\Views\\ClienteModel\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }
