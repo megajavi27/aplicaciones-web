@@ -1,0 +1,155 @@
+@model IEnumerable<WebClientes.Models.ClienteModel>
+
+@{
+    ViewData["Title"] = "Listado de Clientes";
+}
+
+<div class="max-w-6xl mx-auto space-y-6">
+    <!-- Header Section -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pb-5 border-b border-slate-200">
+        <div>
+            <h1 class="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-slate-900 via-blue-800 to-indigo-900 bg-clip-text text-transparent flex items-center gap-2">
+                <i class="bi bi-people-fill text-blue-600"></i> Listado de Clientes
+            </h1>
+            <p class="text-slate-500 text-sm mt-1">Administra y organiza toda la información y contactos de tus clientes registrados.</p>
+        </div>
+        <a asp-action="Create" class="inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-sm px-5 py-3 rounded-full shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 hover:-translate-y-0.5 transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+            </svg>
+            <span>Nuevo Cliente</span>
+        </a>
+    </div>
+
+    <!-- Table Card -->
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden">
+        <div class="px-6 py-5 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+            <h3 class="font-bold text-slate-700 text-base">Registros Activos</h3>
+            <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-100/50">
+                Total: @Model.Count()
+            </span>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead class="bg-surface-container-low">
+                    <tr>
+                        <th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant uppercase">Información del Cliente</th>
+                        <th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant uppercase text-right">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-outline-variant/20">
+                    @if (!Model.Any())
+                    {
+                        <tr>
+                            <td colspan="2" class="text-center py-16 text-slate-400">
+                                <div class="flex flex-col items-center justify-center space-y-3">
+                                    <div class="h-16 w-16 bg-slate-100 text-slate-400 rounded-full flex items-center justify-center">
+                                        <i class="bi bi-people text-3xl"></i>
+                                    </div>
+                                    <h4 class="font-bold text-slate-700 text-lg">No hay clientes agregados</h4>
+                                    <p class="text-slate-400 text-sm max-w-xs">Comienza ingresando un nuevo cliente usando el botón de la esquina superior.</p>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        @foreach (var item in Model)
+                        {
+                            <!-- Multi-row Item Block -->
+                            <tr class="hover:bg-primary/5 transition-colors group border-b-0">
+                                <!-- Principal Row: Identification & Name -->
+                                <td class="px-6 pt-6 pb-2">
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+                                            <i class="bi bi-person-fill text-2xl"></i>
+                                        </div>
+                                        <div class="flex flex-col">
+                                            <div class="flex items-center gap-3">
+                                                <span class="text-body-base font-bold text-on-surface">@item.Apellidos @item.Nombre</span>
+                                                <span class="px-3 py-0.5 bg-surface-variant text-on-surface-variant text-[10px] font-bold uppercase rounded-md">@item.TipoIdentificacion?.Descripcion</span>
+                                                <span class="text-body-sm font-medium text-outline tabular-nums">#@item.Identificacion</span>
+                                            </div>
+                                            <p class="text-xs text-outline font-medium mt-0.5">Cliente Registrado</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 pt-6 pb-2 text-right align-top" rowspan="2">
+                                    <div class="flex justify-end gap-2">
+                                        <a asp-action="Edit" asp-route-id="@item.ccliente" class="p-2.5 bg-orange-50 text-orange-600 hover:bg-orange-100 rounded-lg transition-colors flex items-center justify-center" title="Editar">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                            </svg>
+                                        </a>
+                                        <a asp-action="Details" asp-route-id="@item.ccliente" class="p-2.5 bg-blue-50 text-blue-600 hover:bg-blue-100 rounded-lg transition-colors flex items-center justify-center" title="Información">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@item.ccliente" class="p-2.5 bg-red-50 text-red-600 hover:bg-red-100 rounded-lg transition-colors flex items-center justify-center" title="Eliminar">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- Sub-row: Metadata & Contact -->
+                            <tr class="hover:bg-primary/5 transition-colors group">
+                                <td class="px-6 pb-6 pt-0">
+                                    <div class="ml-16 grid grid-cols-2 lg:grid-cols-5 gap-y-4 gap-x-8">
+                                        <div class="flex flex-col gap-1">
+                                            <span class="text-[10px] font-bold text-outline uppercase tracking-wider">Género</span>
+                                            <div class="flex items-center gap-1.5 text-body-sm text-on-surface-variant">
+                                                <i class="bi @(item.cgenero == 'm' ? "bi-gender-female" : "bi-gender-male") text-sm"></i>
+                                                <span>@item.Genero?.Descripcion</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col gap-1">
+                                            <span class="text-[10px] font-bold text-outline uppercase tracking-wider">F. Nacimiento</span>
+                                            <div class="flex items-center gap-1.5 text-body-sm text-on-surface-variant">
+                                                <i class="bi bi-calendar-event text-sm"></i>
+                                                <span class="tabular-nums">@item.FechaNacimiento.ToString("dd/MM/yyyy")</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col gap-1">
+                                            <span class="text-[10px] font-bold text-outline uppercase tracking-wider">Estado Civil</span>
+                                            <div class="flex items-center gap-1.5 text-body-sm text-on-surface-variant">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                                <span>@item.EstadoCivil?.Descripcion</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col gap-1">
+                                            <span class="text-[10px] font-bold text-outline uppercase tracking-wider">Teléfono</span>
+                                            <div class="flex items-center gap-1.5 text-body-sm text-on-surface-variant">
+                                                <i class="bi bi-telephone text-sm"></i>
+                                                <span class="tabular-nums">@Html.DisplayFor(modelItem => item.Telefono)</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-col gap-1">
+                                            <span class="text-[10px] font-bold text-outline uppercase tracking-wider">Correo</span>
+                                            <div class="flex items-center gap-1.5 text-body-sm text-primary font-medium">
+                                                <i class="bi bi-envelope text-sm"></i>
+                                                <span class="truncate underline underline-offset-2 decoration-primary/30">
+                                                    @if (string.IsNullOrEmpty(item.Correo))
+                                                    {
+                                                        <text>No especificado</text>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a href="mailto:@item.Correo">@item.Correo</a>
+                                                    }
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
