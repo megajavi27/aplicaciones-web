@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebClientes</title>
+    <script type="importmap"></script>
+    
+    <!-- Tailwind CSS v4 CDN -->
+    <script src="https://unpkg.com/@@tailwindcss/browser@4"></script>
+    
+    <!-- Google Fonts & Bootstrap Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebClientes.styles.css" asp-append-version="true" />
+</head>
+<body class="bg-slate-50 text-slate-800 font-['Plus_Jakarta_Sans',sans-serif] min-h-screen flex flex-col">
+    <header class="sticky top-0 z-50">
+        <nav class="bg-white/80 backdrop-blur-md border-b border-slate-200/80 shadow-sm py-4">
+            <div class="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <a class="flex items-center space-x-2 text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent transition-transform duration-300 hover:scale-102" asp-area="" asp-controller="Cliente" asp-action="Index">
+                    <i class="bi bi-shield-fill-check text-blue-600 text-2xl"></i>
+                    <span>WebClientes</span>
+                </a>
+                
+                <div class="flex items-center space-x-2">
+                    <a class="flex items-center space-x-1 py-2 px-4 rounded-full text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition duration-300 font-medium text-sm" asp-area="" asp-controller="/Cliente" asp-action="Index">
+                        <i class="bi bi-people-fill"></i>
+                        <span>Clientes</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="flex-grow container mx-auto px-4 py-8">
+        @RenderBody()
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-6 mt-auto">
+        <div class="container mx-auto px-4 text-center text-slate-500 text-sm">
+            &copy; 2026 - <span class="font-semibold text-slate-700">Javier Noboa</span> - <a asp-area="" asp-page="/Privacy" class="text-blue-600 hover:underline ml-1">Privacidad</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

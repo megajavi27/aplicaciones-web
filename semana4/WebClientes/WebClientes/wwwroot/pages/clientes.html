@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes - WebClientes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-100 min-h-screen">
+
+    <!-- SIDEBAR -->
+    <aside class="fixed left-0 top-0 h-screen w-64 flex flex-col z-40" style="background-color:#1e3a5f;">
+        <div class="py-6 px-5" style="background-color:#162d4a;">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl">🏢</span>
+                <div>
+                    <p class="text-white font-bold text-lg leading-tight">WebClientes</p>
+                    <p class="text-blue-300 text-xs">Sistema de Ventas</p>
+                </div>
+            </div>
+        </div>
+        <nav class="mt-6 px-3 space-y-1 flex-1">
+            <a href="../index.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-blue-100 hover:bg-blue-700/40 hover:text-white transition-all text-sm font-medium">🏠
+                Inicio</a>
+            <a href="clientes.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-white bg-blue-600 shadow-sm text-sm font-medium">👥
+                Clientes</a>
+            <a href="categorias.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-blue-100 hover:bg-blue-700/40 hover:text-white transition-all text-sm font-medium">📦
+                Categorías</a>
+            <a href="proveedores.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-blue-100 hover:bg-blue-700/40 hover:text-white transition-all text-sm font-medium">🚚
+                Proveedores</a>
+            <a href="productos.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-blue-100 hover:bg-blue-700/40 hover:text-white transition-all text-sm font-medium">🛒
+                Productos</a>
+            <a href="pedidos.html"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl text-blue-100 hover:bg-blue-700/40 hover:text-white transition-all text-sm font-medium">📋
+                Pedidos</a>
+        </nav>
+        <div class="px-5 py-4 border-t border-blue-800/50">
+            <p class="text-blue-400/60 text-xs text-center">© 2026 WebClientes</p>
+        </div>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="ml-64 min-h-screen p-8" style="background-color:#f1f5f9;">
+
+        <!-- TOPBAR -->
+        <div class="bg-white rounded-2xl shadow-sm px-7 py-5 mb-7 flex items-center justify-between">
+            <div>
+                <h1 class="text-2xl font-bold" style="color:#1e3a5f;">Gestión de Clientes</h1>
+                <p class="text-sm text-slate-400 mt-0.5">Administra el registro de clientes</p>
+            </div>
+            <button onclick="abrirModalCrear()"
+                class="flex items-center gap-2 text-white px-5 py-2.5 rounded-xl font-medium text-sm transition-all shadow-sm"
+                style="background-color:#2563eb;" onmouseover="this.style.backgroundColor='#1d4ed8'"
+                onmouseout="this.style.backgroundColor='#2563eb'">
+                ＋ Nuevo Cliente
+            </button>
+        </div>
+
+        <!-- ALERT -->
+        <div id="alertContainer" class="mb-5"></div>
+
+        <!-- TABLA -->
+        <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
+            <table class="w-full" id="dataTable">
+                <thead style="background-color:#1e3a5f;">
+                    <tr>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">ID
+                        </th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Nombre
+                        </th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">
+                            Apellidos</th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">
+                            Identificación</th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">
+                            Teléfono</th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Correo
+                        </th>
+                        <th class="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">
+                            Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="7" class="py-16 text-center">
+                            <div class="text-5xl mb-3">📭</div>
+                            <p class="text-slate-300 text-lg font-medium">No hay registros disponibles</p>
+                            <p class="text-slate-300 text-sm mt-1">Haz clic en Nuevo para agregar</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- MODAL OVERLAY -->
+    <div id="modalOverlay" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+        <div id="modalCard" class="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
+            <form id="clienteForm">
+                <!-- Header -->
+                <div class="px-6 py-5 rounded-t-2xl flex items-center justify-between"
+                    style="background-color:#1e3a5f;">
+                    <h2 id="modalTitle" class="text-white font-bold text-lg">Nuevo Cliente</h2>
+                    <button type="button" onclick="cerrarModal()"
+                        class="text-blue-200 hover:text-white text-2xl leading-none transition-colors">&times;</button>
+                </div>
+
+                <!-- Body -->
+                <div class="px-6 py-6 space-y-4">
+                    <input type="hidden" id="ccliente">
+
+                    <div>
+                        <label class="text-sm font-semibold text-slate-600 mb-1.5 block">Nombre</label>
+                        <input type="text" id="Nombre" required
+                            class="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all">
+                    </div>
+                    <div>
+                        <label class="text-sm font-semibold text-slate-600 mb-1.5 block">Apellidos</label>
+                        <input type="text" id="Apellidos" required
+                            class="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all">
+                    </div>
+                    <div>
+                        <label class="text-sm font-semibold text-slate-600 mb-1.5 block">Identificación</label>
+                        <input type="text" id="Identificacion" required
+                            class="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all">
+                    </div>
+                    <div>
+                        <label class="text-sm font-semibold text-slate-600 mb-1.5 block">Tipo Identificación</label>
+                        <select id="ctipoidentificacion" required
+                            class="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all bg-white">
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-sm font-semibold text-slate-600 mb-1.5 block">Género</label>
+                        <select id="cgenero" required
+                            class="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all bg-white">
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-sm font-semibold text-slate-600 mb-1.5 block">Fecha Nacimiento</label>
+                        <input type="date" id="FechaNacimiento" required
+                            class="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all">
+                    </div>
+                    <div>
+                        <label class="text-sm font-semibold text-slate-600 mb-1.5 block">Estado Civil</label>
+                        <select id="cestadocivil" required
+                            class="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all bg-white">
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-sm font-semibold text-slate-600 mb-1.5 block">Dirección</label>
+                        <input type="text" id="Direccion"
+                            class="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all">
+                    </div>
+                    <div>
+                        <label class="text-sm font-semibold text-slate-600 mb-1.5 block">Teléfono</label>
+                        <input type="text" id="Telefono"
+                            class="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all">
+                    </div>
+                    <div>
+                        <label class="text-sm font-semibold text-slate-600 mb-1.5 block">Correo</label>
+                        <input type="email" id="Correo"
+                            class="w-full border border-slate-200 rounded-xl px-4 py-2.5 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all">
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="px-6 py-4 bg-slate-50 rounded-b-2xl flex justify-end gap-3 border-t border-slate-100">
+                    <button type="button" onclick="cerrarModal()"
+                        class="border border-slate-200 text-slate-600 hover:bg-slate-100 px-5 py-2.5 rounded-xl text-sm font-medium transition-all">
+                        Cancelar
+                    </button>
+                    <button type="submit"
+                        class="text-white px-5 py-2.5 rounded-xl text-sm font-medium transition-all shadow-sm"
+                        style="background-color:#2563eb;" onmouseover="this.style.backgroundColor='#1d4ed8'"
+                        onmouseout="this.style.backgroundColor='#2563eb'">
+                        Guardar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/clientes.js"></script>
+</body>
+
+</html>

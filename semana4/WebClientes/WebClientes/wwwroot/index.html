@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebClientes - Sistema de Gestión de Ventas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="m-0 p-0">
+    <div class="min-h-screen flex items-center justify-center relative overflow-hidden"
+        style="background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);">
+
+        <!-- Patrón SVG de puntos de fondo -->
+        <div class="absolute inset-0 opacity-10">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+                        <circle cx="2" cy="2" r="1.5" fill="white" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#dots)" />
+            </svg>
+        </div>
+
+        <!-- Card central -->
+        <div class="relative z-10 w-full max-w-2xl mx-auto px-4">
+            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-12 text-center shadow-2xl border border-white/20">
+
+                <!-- Ícono -->
+                <div class="mx-auto mb-6 w-20 h-20 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 text-white" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+                    </svg>
+                </div>
+
+                <!-- Título -->
+                <h1 class="text-5xl font-bold text-white mb-3">WebClientes</h1>
+
+                <!-- Subtítulo -->
+                <p class="text-xl text-blue-200 mb-2">Sistema de Gestión de Ventas</p>
+
+                <!-- Descripción -->
+                <p class="text-blue-100/80 text-base mb-10 max-w-md mx-auto leading-relaxed">
+                    Administra clientes, productos, pedidos y más desde un solo lugar.
+                </p>
+
+                <!-- Grid de módulos -->
+                <div class="grid grid-cols-5 gap-3 mb-10">
+                    <button onclick="window.location.href='pages/clientes.html'"
+                        class="bg-white/10 hover:bg-white/20 rounded-xl p-3 text-white text-xs text-center cursor-pointer transition-all border border-white/10 hover:border-white/30 hover:scale-105">
+                        <div class="text-2xl mb-1">👥</div>
+                        <div class="font-medium">Clientes</div>
+                    </button>
+                    <button onclick="window.location.href='pages/categorias.html'"
+                        class="bg-white/10 hover:bg-white/20 rounded-xl p-3 text-white text-xs text-center cursor-pointer transition-all border border-white/10 hover:border-white/30 hover:scale-105">
+                        <div class="text-2xl mb-1">📦</div>
+                        <div class="font-medium">Categorías</div>
+                    </button>
+                    <button onclick="window.location.href='pages/proveedores.html'"
+                        class="bg-white/10 hover:bg-white/20 rounded-xl p-3 text-white text-xs text-center cursor-pointer transition-all border border-white/10 hover:border-white/30 hover:scale-105">
+                        <div class="text-2xl mb-1">🚚</div>
+                        <div class="font-medium">Proveedores</div>
+                    </button>
+                    <button onclick="window.location.href='pages/productos.html'"
+                        class="bg-white/10 hover:bg-white/20 rounded-xl p-3 text-white text-xs text-center cursor-pointer transition-all border border-white/10 hover:border-white/30 hover:scale-105">
+                        <div class="text-2xl mb-1">🛒</div>
+                        <div class="font-medium">Productos</div>
+                    </button>
+                    <button onclick="window.location.href='pages/pedidos.html'"
+                        class="bg-white/10 hover:bg-white/20 rounded-xl p-3 text-white text-xs text-center cursor-pointer transition-all border border-white/10 hover:border-white/30 hover:scale-105">
+                        <div class="text-2xl mb-1">📋</div>
+                        <div class="font-medium">Pedidos</div>
+                    </button>
+                </div>
+
+                <!-- Pie -->
+                <p class="text-blue-200/50 text-xs mt-8">© 2026 WebClientes · Todos los derechos reservados</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
