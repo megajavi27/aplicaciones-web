@@ -1,0 +1,60 @@
+@model EvaluacionParcial1.Models.Profesor
+@{ ViewData["Title"] = "Detalles del Profesor"; }
+
+<div class="max-w-2xl mx-auto">
+    <div class="mb-6 flex justify-between items-end">
+        <div>
+            <h1 class="text-3xl font-bold text-slate-800">Detalles</h1>
+            <p class="text-slate-500">Información completa del docente</p>
+        </div>
+        <a asp-action="Index" class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
+            <i class="bi bi-arrow-left me-1"></i> Volver a la lista
+        </a>
+    </div>
+
+    <div class="bg-white shadow-sm rounded-xl border border-slate-200 overflow-hidden">
+        <div class="bg-gradient-to-r from-indigo-600 to-violet-600 p-6 flex items-center gap-4 text-white">
+            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center text-3xl">
+                <i class="bi bi-person-video3"></i>
+            </div>
+            <div>
+                <h2 class="text-2xl font-bold">@Model.Nombre @Model.Apellido</h2>
+                <p class="text-indigo-100 text-sm">Profesor ID: @Model.ProfesorId</p>
+            </div>
+        </div>
+
+        <div class="p-6">
+            <dl class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-6">
+                <div>
+                    <dt class="text-sm font-medium text-slate-500 mb-1">@Html.DisplayNameFor(model => model.Nombre)</dt>
+                    <dd class="text-lg text-slate-900 font-semibold">@Html.DisplayFor(model => model.Nombre)</dd>
+                </div>
+                <div>
+                    <dt class="text-sm font-medium text-slate-500 mb-1">@Html.DisplayNameFor(model => model.Apellido)</dt>
+                    <dd class="text-lg text-slate-900 font-semibold">@Html.DisplayFor(model => model.Apellido)</dd>
+                </div>
+                <div>
+                    <dt class="text-sm font-medium text-slate-500 mb-1">@Html.DisplayNameFor(model => model.Especialidad)</dt>
+                    <dd class="text-lg text-slate-900 font-semibold">
+                        <span class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-sm border border-indigo-100">@Html.DisplayFor(model => model.Especialidad)</span>
+                    </dd>
+                </div>
+                <div>
+                    <dt class="text-sm font-medium text-slate-500 mb-1">@Html.DisplayNameFor(model => model.Email)</dt>
+                    <dd class="text-lg text-slate-900 font-semibold">
+                        <a href="mailto:@Model.Email" class="text-indigo-600 hover:underline">@Model.Email</a>
+                    </dd>
+                </div>
+            </dl>
+        </div>
+        
+        <div class="bg-slate-50 p-6 border-t border-slate-200 flex gap-4">
+            <a asp-action="Edit" asp-route-id="@Model?.ProfesorId" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg shadow-sm transition duration-200">
+                <i class="bi bi-pencil-square me-2"></i> Editar
+            </a>
+            <a asp-action="Delete" asp-route-id="@Model?.ProfesorId" class="bg-white border border-red-200 text-red-600 hover:bg-red-50 font-medium py-2 px-6 rounded-lg transition duration-200">
+                <i class="bi bi-trash me-2"></i> Eliminar
+            </a>
+        </div>
+    </div>
+</div>

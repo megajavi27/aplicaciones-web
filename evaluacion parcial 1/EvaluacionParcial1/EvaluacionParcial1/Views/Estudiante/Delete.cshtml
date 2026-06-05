@@ -1,0 +1,59 @@
+@model EvaluacionParcial1.Models.Estudiante
+@{ ViewData["Title"] = "Eliminar Estudiante"; }
+
+<div class="max-w-2xl mx-auto">
+    <div class="mb-6 flex justify-between items-end">
+        <div>
+            <h1 class="text-3xl font-bold text-slate-800">Eliminar Estudiante</h1>
+            <p class="text-red-500 font-medium mt-1">¿Estás seguro de que deseas eliminar este registro?</p>
+        </div>
+        <a asp-action="Index" class="text-slate-500 hover:text-slate-700 text-sm font-medium">
+            Cancelar y volver
+        </a>
+    </div>
+
+    <div class="bg-white shadow-sm rounded-xl border border-red-200 overflow-hidden">
+        <div class="bg-red-50 p-6 border-b border-red-100 flex items-start gap-4">
+            <i class="bi bi-exclamation-triangle-fill text-red-500 text-3xl mt-1"></i>
+            <div>
+                <h3 class="text-lg font-bold text-red-800">Advertencia</h3>
+                <p class="text-red-600 text-sm mt-1">Esta acción es irreversible. Se eliminará permanentemente al estudiante <strong>@Model.Nombre @Model.Apellido</strong> y toda su información relacionada de la base de datos.</p>
+            </div>
+        </div>
+
+        <div class="p-6">
+            <dl class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-4">
+                <div>
+                    <dt class="text-sm font-medium text-slate-500 mb-1">@Html.DisplayNameFor(model => model.Nombre)</dt>
+                    <dd class="text-slate-900 font-semibold">@Html.DisplayFor(model => model.Nombre)</dd>
+                </div>
+                <div>
+                    <dt class="text-sm font-medium text-slate-500 mb-1">@Html.DisplayNameFor(model => model.Apellido)</dt>
+                    <dd class="text-slate-900 font-semibold">@Html.DisplayFor(model => model.Apellido)</dd>
+                </div>
+                <div>
+                    <dt class="text-sm font-medium text-slate-500 mb-1">@Html.DisplayNameFor(model => model.FechaNacimiento)</dt>
+                    <dd class="text-slate-900">@Model.FechaNacimiento.ToString("dd MMMM yyyy")</dd>
+                </div>
+                <div>
+                    <dt class="text-sm font-medium text-slate-500 mb-1">@Html.DisplayNameFor(model => model.Grado)</dt>
+                    <dd class="text-slate-900">@Html.DisplayFor(model => model.Grado)</dd>
+                </div>
+            </dl>
+        </div>
+        
+        <div class="bg-slate-50 p-6 border-t border-slate-200">
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="EstudianteId" />
+                <div class="flex gap-4">
+                    <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-6 rounded-lg shadow-sm transition duration-200">
+                        <i class="bi bi-trash me-2"></i> Sí, Eliminar
+                    </button>
+                    <a asp-action="Index" class="bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 font-medium py-2 px-6 rounded-lg transition duration-200">
+                        Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

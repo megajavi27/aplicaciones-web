@@ -1,0 +1,52 @@
+@model IEnumerable<EvaluacionParcial1.Models.Clase>
+@{ ViewData["Title"] = "Clases"; }
+
+<div class="mb-6 flex justify-between items-center">
+    <div>
+        <h1 class="text-3xl font-bold text-slate-800">Clases</h1>
+        <p class="text-slate-500">Gestión de materias y asignaciones</p>
+    </div>
+    <a asp-action="Create" class="bg-violet-600 hover:bg-violet-700 text-white font-medium py-2 px-5 rounded-lg shadow-sm transition duration-200 flex items-center gap-2">
+        <i class="bi bi-plus-lg"></i> Nueva Clase
+    </a>
+</div>
+
+<div class="bg-white shadow-sm rounded-xl overflow-hidden border border-slate-200">
+    <table class="w-full text-left border-collapse">
+        <thead>
+            <tr class="bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white">
+                <th class="py-4 px-6 font-semibold">@Html.DisplayNameFor(model => model.NombreClase)</th>
+                <th class="py-4 px-6 font-semibold">@Html.DisplayNameFor(model => model.Profesor)</th>
+                <th class="py-4 px-6 font-semibold text-center rounded-tr-xl">Acciones</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-100">
+            @foreach (var item in Model) {
+                <tr class="hover:bg-slate-50 transition duration-150">
+                    <td class="py-3 px-6 font-medium text-slate-800">@Html.DisplayFor(modelItem => item.NombreClase)</td>
+                    <td class="py-3 px-6 text-slate-600">
+                        @if(item.Profesor != null) {
+                            <div class="flex items-center gap-2">
+                                <i class="bi bi-person-circle text-slate-400"></i>
+                                <span>@item.Profesor.Nombre @item.Profesor.Apellido</span>
+                            </div>
+                        } else {
+                            <span class="text-slate-400 italic">Sin asignar</span>
+                        }
+                    </td>
+                    <td class="py-3 px-6 flex justify-center gap-2">
+                        <a asp-action="Edit" asp-route-id="@item.ClaseId" class="text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 p-2 rounded-lg transition" title="Editar">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                        <a asp-action="Details" asp-route-id="@item.ClaseId" class="text-violet-600 hover:text-violet-800 bg-violet-50 hover:bg-violet-100 p-2 rounded-lg transition" title="Ver Detalles">
+                            <i class="bi bi-eye"></i>
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@item.ClaseId" class="text-red-600 hover:text-red-800 bg-red-50 hover:bg-red-100 p-2 rounded-lg transition" title="Eliminar">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

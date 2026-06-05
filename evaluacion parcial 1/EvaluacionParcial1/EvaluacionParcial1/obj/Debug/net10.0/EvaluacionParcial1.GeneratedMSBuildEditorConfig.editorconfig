@@ -1,0 +1,120 @@
+is_global = true
+build_property.TargetFramework = net10.0
+build_property.TargetFramework = net10.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v10.0
+build_property.EntryPointFilePath = 
+build_property.RootNamespace = EvaluacionParcial1
+build_property.RootNamespace = EvaluacionParcial1
+build_property.ProjectDir = D:\PCSIS8\Documents\GitHub\aplicaciones-web\evaluacion parcial 1\EvaluacionParcial1\EvaluacionParcial1\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 10.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\PCSIS8\Documents\GitHub\aplicaciones-web\evaluacion parcial 1\EvaluacionParcial1\EvaluacionParcial1
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 10.0
+build_property.EnableCodeStyleSeverity = 
+
+[D:/PCSIS8/Documents/GitHub/aplicaciones-web/evaluacion parcial 1/EvaluacionParcial1/EvaluacionParcial1/Views/Clase/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc2VcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PCSIS8/Documents/GitHub/aplicaciones-web/evaluacion parcial 1/EvaluacionParcial1/EvaluacionParcial1/Views/Clase/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc2VcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PCSIS8/Documents/GitHub/aplicaciones-web/evaluacion parcial 1/EvaluacionParcial1/EvaluacionParcial1/Views/Clase/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc2VcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PCSIS8/Documents/GitHub/aplicaciones-web/evaluacion parcial 1/EvaluacionParcial1/EvaluacionParcial1/Views/Clase/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc2VcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PCSIS8/Documents/GitHub/aplicaciones-web/evaluacion parcial 1/EvaluacionParcial1/EvaluacionParcial1/Views/Clase/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc2VcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PCSIS8/Documents/GitHub/aplicaciones-web/evaluacion parcial 1/EvaluacionParcial1/EvaluacionParcial1/Views/Estudiante/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0dWRpYW50ZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PCSIS8/Documents/GitHub/aplicaciones-web/evaluacion parcial 1/EvaluacionParcial1/EvaluacionParcial1/Views/Estudiante/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0dWRpYW50ZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PCSIS8/Documents/GitHub/aplicaciones-web/evaluacion parcial 1/EvaluacionParcial1/EvaluacionParcial1/Views/Estudiante/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0dWRpYW50ZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PCSIS8/Documents/GitHub/aplicaciones-web/evaluacion parcial 1/EvaluacionParcial1/EvaluacionParcial1/Views/Estudiante/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0dWRpYW50ZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PCSIS8/Documents/GitHub/aplicaciones-web/evaluacion parcial 1/EvaluacionParcial1/EvaluacionParcial1/Views/Estudiante/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0dWRpYW50ZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PCSIS8/Documents/GitHub/aplicaciones-web/evaluacion parcial 1/EvaluacionParcial1/EvaluacionParcial1/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PCSIS8/Documents/GitHub/aplicaciones-web/evaluacion parcial 1/EvaluacionParcial1/EvaluacionParcial1/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PCSIS8/Documents/GitHub/aplicaciones-web/evaluacion parcial 1/EvaluacionParcial1/EvaluacionParcial1/Views/Profesor/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmVzb3JcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PCSIS8/Documents/GitHub/aplicaciones-web/evaluacion parcial 1/EvaluacionParcial1/EvaluacionParcial1/Views/Profesor/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmVzb3JcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PCSIS8/Documents/GitHub/aplicaciones-web/evaluacion parcial 1/EvaluacionParcial1/EvaluacionParcial1/Views/Profesor/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmVzb3JcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PCSIS8/Documents/GitHub/aplicaciones-web/evaluacion parcial 1/EvaluacionParcial1/EvaluacionParcial1/Views/Profesor/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmVzb3JcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PCSIS8/Documents/GitHub/aplicaciones-web/evaluacion parcial 1/EvaluacionParcial1/EvaluacionParcial1/Views/Profesor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmVzb3JcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PCSIS8/Documents/GitHub/aplicaciones-web/evaluacion parcial 1/EvaluacionParcial1/EvaluacionParcial1/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PCSIS8/Documents/GitHub/aplicaciones-web/evaluacion parcial 1/EvaluacionParcial1/EvaluacionParcial1/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PCSIS8/Documents/GitHub/aplicaciones-web/evaluacion parcial 1/EvaluacionParcial1/EvaluacionParcial1/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PCSIS8/Documents/GitHub/aplicaciones-web/evaluacion parcial 1/EvaluacionParcial1/EvaluacionParcial1/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/PCSIS8/Documents/GitHub/aplicaciones-web/evaluacion parcial 1/EvaluacionParcial1/EvaluacionParcial1/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-1g4gy9jas7

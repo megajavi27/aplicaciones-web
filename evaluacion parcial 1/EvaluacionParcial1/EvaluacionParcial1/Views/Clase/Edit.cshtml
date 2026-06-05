@@ -1,0 +1,43 @@
+@model EvaluacionParcial1.Models.Clase
+@{ ViewData["Title"] = "Editar Clase"; }
+
+<div class="max-w-2xl mx-auto">
+    <div class="mb-6">
+        <h1 class="text-3xl font-bold text-slate-800">Editar Clase</h1>
+        <p class="text-slate-500">Modifica los detalles de la materia</p>
+    </div>
+
+    <div class="bg-white shadow-sm rounded-xl border border-slate-200 p-8">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-red-500 mb-4 text-sm"></div>
+            <input type="hidden" asp-for="ClaseId" />
+            
+            <div class="mb-6">
+                <label asp-for="NombreClase" class="block text-sm font-medium text-slate-700 mb-2"></label>
+                <input asp-for="NombreClase" class="w-full border-slate-300 rounded-lg shadow-sm focus:ring-violet-500 focus:border-violet-500 px-4 py-2 border" />
+                <span asp-validation-for="NombreClase" class="text-red-500 text-xs mt-1 block"></span>
+            </div>
+
+            <div class="mb-8">
+                <label asp-for="ProfesorId" class="block text-sm font-medium text-slate-700 mb-2"></label>
+                <select asp-for="ProfesorId" class="w-full border-slate-300 rounded-lg shadow-sm focus:ring-violet-500 focus:border-violet-500 px-4 py-2 border bg-white" asp-items="ViewBag.ProfesorId">
+                    <option value="">-- Seleccione un Profesor --</option>
+                </select>
+                <span asp-validation-for="ProfesorId" class="text-red-500 text-xs mt-1 block"></span>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button type="submit" class="bg-violet-600 hover:bg-violet-700 text-white font-medium py-2 px-6 rounded-lg shadow-sm transition duration-200">
+                    <i class="bi bi-save me-2"></i> Guardar Cambios
+                </button>
+                <a asp-action="Index" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium py-2 px-6 rounded-lg transition duration-200">
+                    Cancelar
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

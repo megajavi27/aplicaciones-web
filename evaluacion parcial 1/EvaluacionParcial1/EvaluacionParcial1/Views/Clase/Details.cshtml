@@ -1,0 +1,60 @@
+@model EvaluacionParcial1.Models.Clase
+@{ ViewData["Title"] = "Detalles de Clase"; }
+
+<div class="max-w-2xl mx-auto">
+    <div class="mb-6 flex justify-between items-end">
+        <div>
+            <h1 class="text-3xl font-bold text-slate-800">Detalles</h1>
+            <p class="text-slate-500">Información completa de la materia</p>
+        </div>
+        <a asp-action="Index" class="text-violet-600 hover:text-violet-800 text-sm font-medium">
+            <i class="bi bi-arrow-left me-1"></i> Volver a la lista
+        </a>
+    </div>
+
+    <div class="bg-white shadow-sm rounded-xl border border-slate-200 overflow-hidden">
+        <div class="bg-gradient-to-r from-violet-600 to-fuchsia-600 p-6 flex items-center gap-4 text-white">
+            <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center text-3xl">
+                <i class="bi bi-journal-bookmark-fill"></i>
+            </div>
+            <div>
+                <h2 class="text-2xl font-bold">@Model.NombreClase</h2>
+                <p class="text-violet-100 text-sm">Clase ID: @Model.ClaseId</p>
+            </div>
+        </div>
+
+        <div class="p-6">
+            <dl class="grid grid-cols-1 gap-y-6">
+                <div>
+                    <dt class="text-sm font-medium text-slate-500 mb-1">@Html.DisplayNameFor(model => model.NombreClase)</dt>
+                    <dd class="text-lg text-slate-900 font-semibold">@Html.DisplayFor(model => model.NombreClase)</dd>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-lg border border-slate-100">
+                    <dt class="text-sm font-medium text-slate-500 mb-2">@Html.DisplayNameFor(model => model.Profesor)</dt>
+                    <dd class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center">
+                            <i class="bi bi-person-video3"></i>
+                        </div>
+                        <div>
+                            @if(Model.Profesor != null) {
+                                <p class="font-semibold text-slate-800">@Model.Profesor.Nombre @Model.Profesor.Apellido</p>
+                                <p class="text-xs text-slate-500">@Model.Profesor.Especialidad</p>
+                            } else {
+                                <p class="text-slate-500 italic">No asignado</p>
+                            }
+                        </div>
+                    </dd>
+                </div>
+            </dl>
+        </div>
+        
+        <div class="bg-slate-50 p-6 border-t border-slate-200 flex gap-4">
+            <a asp-action="Edit" asp-route-id="@Model?.ClaseId" class="bg-violet-600 hover:bg-violet-700 text-white font-medium py-2 px-6 rounded-lg shadow-sm transition duration-200">
+                <i class="bi bi-pencil-square me-2"></i> Editar
+            </a>
+            <a asp-action="Delete" asp-route-id="@Model?.ClaseId" class="bg-white border border-red-200 text-red-600 hover:bg-red-50 font-medium py-2 px-6 rounded-lg transition duration-200">
+                <i class="bi bi-trash me-2"></i> Eliminar
+            </a>
+        </div>
+    </div>
+</div>

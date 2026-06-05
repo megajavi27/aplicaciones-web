@@ -1,0 +1,54 @@
+@model EvaluacionParcial1.Models.Profesor
+@{ ViewData["Title"] = "Nuevo Profesor"; }
+
+<div class="max-w-2xl mx-auto">
+    <div class="mb-6">
+        <h1 class="text-3xl font-bold text-slate-800">Nuevo Profesor</h1>
+        <p class="text-slate-500">Registra un nuevo docente en el sistema</p>
+    </div>
+
+    <div class="bg-white shadow-sm rounded-xl border border-slate-200 p-8">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-red-500 mb-4 text-sm"></div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <label asp-for="Nombre" class="block text-sm font-medium text-slate-700 mb-2"></label>
+                    <input asp-for="Nombre" class="w-full border-slate-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 px-4 py-2 border" />
+                    <span asp-validation-for="Nombre" class="text-red-500 text-xs mt-1 block"></span>
+                </div>
+                <div>
+                    <label asp-for="Apellido" class="block text-sm font-medium text-slate-700 mb-2"></label>
+                    <input asp-for="Apellido" class="w-full border-slate-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 px-4 py-2 border" />
+                    <span asp-validation-for="Apellido" class="text-red-500 text-xs mt-1 block"></span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div>
+                    <label asp-for="Especialidad" class="block text-sm font-medium text-slate-700 mb-2"></label>
+                    <input asp-for="Especialidad" class="w-full border-slate-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 px-4 py-2 border" />
+                    <span asp-validation-for="Especialidad" class="text-red-500 text-xs mt-1 block"></span>
+                </div>
+                <div>
+                    <label asp-for="Email" class="block text-sm font-medium text-slate-700 mb-2"></label>
+                    <input asp-for="Email" type="email" class="w-full border-slate-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 px-4 py-2 border" />
+                    <span asp-validation-for="Email" class="text-red-500 text-xs mt-1 block"></span>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg shadow-sm transition duration-200">
+                    <i class="bi bi-save me-2"></i> Guardar
+                </button>
+                <a asp-action="Index" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium py-2 px-6 rounded-lg transition duration-200">
+                    Cancelar
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

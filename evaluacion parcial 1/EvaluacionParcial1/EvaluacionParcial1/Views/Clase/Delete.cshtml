@@ -1,0 +1,57 @@
+@model EvaluacionParcial1.Models.Clase
+@{ ViewData["Title"] = "Eliminar Clase"; }
+
+<div class="max-w-2xl mx-auto">
+    <div class="mb-6 flex justify-between items-end">
+        <div>
+            <h1 class="text-3xl font-bold text-slate-800">Eliminar Clase</h1>
+            <p class="text-red-500 font-medium mt-1">¿Estás seguro de que deseas eliminar este registro?</p>
+        </div>
+        <a asp-action="Index" class="text-slate-500 hover:text-slate-700 text-sm font-medium">
+            Cancelar y volver
+        </a>
+    </div>
+
+    <div class="bg-white shadow-sm rounded-xl border border-red-200 overflow-hidden">
+        <div class="bg-red-50 p-6 border-b border-red-100 flex items-start gap-4">
+            <i class="bi bi-exclamation-triangle-fill text-red-500 text-3xl mt-1"></i>
+            <div>
+                <h3 class="text-lg font-bold text-red-800">Advertencia</h3>
+                <p class="text-red-600 text-sm mt-1">Esta acción es irreversible. Se eliminará la clase <strong>@Model.NombreClase</strong> y perderá las asignaciones de estudiantes a esta materia.</p>
+            </div>
+        </div>
+
+        <div class="p-6">
+            <dl class="grid grid-cols-1 gap-y-4">
+                <div>
+                    <dt class="text-sm font-medium text-slate-500 mb-1">@Html.DisplayNameFor(model => model.NombreClase)</dt>
+                    <dd class="text-slate-900 font-semibold text-lg">@Html.DisplayFor(model => model.NombreClase)</dd>
+                </div>
+                <div>
+                    <dt class="text-sm font-medium text-slate-500 mb-1">Profesor Asignado</dt>
+                    <dd class="text-slate-900">
+                        @if(Model.Profesor != null) {
+                            <span>@Model.Profesor.Nombre @Model.Profesor.Apellido</span>
+                        } else {
+                            <span class="italic text-slate-500">Sin asignar</span>
+                        }
+                    </dd>
+                </div>
+            </dl>
+        </div>
+        
+        <div class="bg-slate-50 p-6 border-t border-slate-200">
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="ClaseId" />
+                <div class="flex gap-4">
+                    <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-6 rounded-lg shadow-sm transition duration-200">
+                        <i class="bi bi-trash me-2"></i> Sí, Eliminar
+                    </button>
+                    <a asp-action="Index" class="bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 font-medium py-2 px-6 rounded-lg transition duration-200">
+                        Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

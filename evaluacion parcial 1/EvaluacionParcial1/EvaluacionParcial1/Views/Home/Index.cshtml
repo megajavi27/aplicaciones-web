@@ -1,0 +1,40 @@
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="flex flex-col items-center justify-center min-h-[60vh]">
+    <div class="bg-white/10 backdrop-blur-md shadow-2xl rounded-3xl p-10 max-w-4xl w-full border border-white/20 bg-gradient-to-br from-blue-50/50 to-indigo-50/50">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-700 bg-clip-text text-transparent mb-4">
+                Sistema de Gestión Escolar
+            </h1>
+            <p class="text-slate-500 text-lg">Administra estudiantes, profesores y clases de manera eficiente y moderna.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <a asp-controller="Estudiante" asp-action="Index" class="group flex flex-col items-center p-8 bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 border border-slate-100">
+                <div class="w-16 h-16 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full mb-4 group-hover:bg-blue-600 group-hover:text-white transition duration-300">
+                    <i class="bi bi-people-fill text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-2">Estudiantes</h3>
+                <p class="text-slate-500 text-center text-sm">Gestiona el registro y expediente de los estudiantes.</p>
+            </a>
+
+            <a asp-controller="Profesor" asp-action="Index" class="group flex flex-col items-center p-8 bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 border border-slate-100">
+                <div class="w-16 h-16 flex items-center justify-center bg-indigo-50 text-indigo-600 rounded-full mb-4 group-hover:bg-indigo-600 group-hover:text-white transition duration-300">
+                    <i class="bi bi-person-video3 text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-2">Profesores</h3>
+                <p class="text-slate-500 text-center text-sm">Administra el personal docente y sus especialidades.</p>
+            </a>
+
+            <a asp-controller="Clase" asp-action="Index" class="group flex flex-col items-center p-8 bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 border border-slate-100">
+                <div class="w-16 h-16 flex items-center justify-center bg-violet-50 text-violet-600 rounded-full mb-4 group-hover:bg-violet-600 group-hover:text-white transition duration-300">
+                    <i class="bi bi-journal-bookmark-fill text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-800 mb-2">Clases</h3>
+                <p class="text-slate-500 text-center text-sm">Organiza las materias impartidas por los profesores.</p>
+            </a>
+        </div>
+    </div>
+</div>
