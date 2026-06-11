@@ -1,0 +1,84 @@
+<div class="flex min-h-screen bg-surface">
+  <!-- Image Half -->
+  <div class="hidden lg:block lg:w-1/2 relative bg-primary-container">
+    <!-- Placeholder for hotel image, using a solid color/gradient as fallback if img fails -->
+    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
+         alt="Luxury Hotel" 
+         class="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-overlay">
+    <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
+    <div class="absolute bottom-16 left-16 text-on-primary">
+      <h1 class="font-display text-5xl font-bold mb-4 text-secondary-container">Hotel Bombay</h1>
+      <p class="font-body text-xl tracking-wide">Donde el lujo se encuentra con la tranquilidad</p>
+    </div>
+  </div>
+
+  <!-- Form Half -->
+  <div class="w-full lg:w-1/2 flex items-center justify-center p-8 sm:p-12 lg:p-24 bg-surface">
+    <div class="w-full max-w-md">
+      <div class="text-center mb-10 lg:text-left">
+        <h1 class="font-display text-4xl font-bold text-primary">Hotel Bombay</h1>
+        <p class="text-on-surface-variant text-sm mt-2 font-body tracking-widest uppercase">Sistema de Gestión</p>
+      </div>
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-6">
+        
+        @if (errorMessage()) {
+          <div class="p-4 rounded-lg bg-error-container text-error text-sm">
+            {{ errorMessage() }}
+          </div>
+        }
+
+        <div>
+          <label for="email" class="block text-sm font-medium text-on-surface mb-1">Correo Electrónico</label>
+          <input type="email" id="email" formControlName="email" 
+                 class="w-full bg-surface-container-low text-on-surface border-0 border-b-2 border-outline-variant rounded-t-md px-4 py-3 focus:ring-0 focus:border-secondary transition-colors"
+                 placeholder="nombre@ejemplo.com">
+          @if (form.get('email')?.touched && form.get('email')?.invalid) {
+            <div class="text-error text-xs mt-1">
+              @if (form.get('email')?.errors?.['required']) {
+                <span>El correo es requerido.</span>
+              }
+              @if (form.get('email')?.errors?.['email']) {
+                <span>Formato de correo inválido.</span>
+              }
+            </div>
+          }
+        </div>
+
+        <div>
+          <label for="password" class="block text-sm font-medium text-on-surface mb-1">Contraseña</label>
+          <input type="password" id="password" formControlName="password" 
+                 class="w-full bg-surface-container-low text-on-surface border-0 border-b-2 border-outline-variant rounded-t-md px-4 py-3 focus:ring-0 focus:border-secondary transition-colors"
+                 placeholder="••••••••">
+          @if (form.get('password')?.touched && form.get('password')?.invalid) {
+            <div class="text-error text-xs mt-1">
+              @if (form.get('password')?.errors?.['required']) {
+                <span>La contraseña es requerida.</span>
+              }
+              @if (form.get('password')?.errors?.['minlength']) {
+                <span>Mínimo 6 caracteres.</span>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="pt-4">
+          <button type="submit" [disabled]="form.invalid || isLoading()"
+                  class="w-full bg-primary text-on-primary py-4 rounded-xl font-semibold hover:bg-primary-container disabled:opacity-50 disabled:cursor-not-allowed transition-all active:scale-[0.98] shadow-md shadow-primary/20">
+            @if (!isLoading()) {
+              <span>Iniciar Sesión</span>
+            } @else {
+              <span class="flex items-center justify-center gap-2">
+                <svg class="animate-spin h-5 w-5 text-on-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Procesando...
+              </span>
+            }
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,126 @@
+<div class="bg-surface text-on-surface font-body smooth-scroll overflow-x-hidden">
+
+  <app-public-navbar></app-public-navbar>
+
+  <!-- Hero Section -->
+  <section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img alt="Resort de lujo" class="w-full h-full object-cover"
+        src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" />
+      <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-primary/10"></div>
+    </div>
+    <div class="relative z-10 text-center px-6 max-w-4xl">
+      <h1 class="font-display text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg">Donde el silencio encuentra
+        su voz</h1>
+      <p class="font-body text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
+        Descubre un santuario de elegancia donde el minimalismo contemporáneo se une a la tranquilidad atemporal de la
+        costa.
+      </p>
+      <div class="flex flex-col md:flex-row gap-4 justify-center">
+        <a routerLink="/habitaciones"
+          class="bg-white text-primary px-10 py-4 rounded-lg font-medium text-sm hover:bg-surface-container-low transition-all shadow-xl">Explorar
+          Habitaciones</a>
+        <a routerLink="/login"
+          class="border border-white text-white px-10 py-4 rounded-lg font-medium text-sm hover:bg-white/10 transition-all backdrop-blur-sm">Acceder
+          al Sistema</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rooms Section -->
+  <section class="pt-24 pb-24 px-6 lg:px-16 max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+      <div class="max-w-2xl">
+        <span class="font-medium text-sm text-secondary tracking-widest uppercase mb-4 block">Vida Refinada</span>
+        <h2 class="font-display text-4xl md:text-5xl font-semibold text-primary">Nuestras Habitaciones</h2>
+        <p class="text-on-surface-variant mt-4">Cada espacio ha sido diseñado meticulosamente para ofrecer una armonía
+          visual que invita al descanso profundo.</p>
+      </div>
+      <a routerLink="/habitaciones"
+        class="font-medium text-sm text-primary hover:text-secondary transition-all flex items-center gap-2 whitespace-nowrap">
+        Ver todas <span class="material-symbols-outlined text-base">arrow_forward</span>
+      </a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      @for (room of rooms; track room.nombre) {
+      <a routerLink="/habitaciones" class="group cursor-pointer transition-transform duration-300 hover:-translate-y-2">
+        <div class="relative overflow-hidden rounded-xl aspect-[4/5] mb-6">
+          <img [src]="room.imagen" [alt]="room.nombre"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+          @if (room.destacado) {
+          <div class="absolute top-4 left-4">
+            <span class="bg-white/90 backdrop-blur-sm text-primary px-4 py-1 rounded-full text-xs font-medium">Más
+              Popular</span>
+          </div>
+          }
+        </div>
+        <h3 class="font-display text-2xl font-semibold text-primary mb-2">{{ room.nombre }}</h3>
+        <div class="flex items-center gap-4 text-on-surface-variant text-xs mb-4">
+          <span class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">square_foot</span> {{ room.metros }} m²
+          </span>
+          <span class="flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">king_bed</span> {{ room.cama }}
+          </span>
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="font-display text-xl text-primary">{{ room.precio }} <span
+              class="text-sm text-on-surface-variant font-normal font-body">/ noche</span></span>
+          <span
+            class="text-primary group-hover:text-secondary transition-all flex items-center gap-2 group-hover:translate-x-2">
+            Detalles <span class="material-symbols-outlined text-base">arrow_forward</span>
+          </span>
+        </div>
+      </a>
+      }
+    </div>
+  </section>
+
+  <!-- Experiences Section -->
+  <section class="bg-surface-container-low py-24 px-6 lg:px-16">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="font-medium text-sm text-secondary tracking-widest uppercase mb-4 block">Vida Curada</span>
+        <h2 class="font-display text-4xl md:text-5xl font-semibold text-primary">Experiencias y Amenidades</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        @for (exp of experiencias; track exp.titulo) {
+        <div
+          class="flex flex-col gap-4 p-8 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow border border-outline-variant/20">
+          <div class="bg-secondary-container/30 p-4 rounded-lg w-fit">
+            <span class="material-symbols-outlined text-secondary text-3xl">{{ exp.icono }}</span>
+          </div>
+          <h4 class="font-display text-xl font-semibold text-primary">{{ exp.titulo }}</h4>
+          <p class="text-sm text-on-surface-variant">{{ exp.descripcion }}</p>
+        </div>
+        }
+      </div>
+      <div class="text-center mt-12">
+        <a routerLink="/experiencias"
+          class="font-medium text-sm text-primary hover:text-secondary transition-all inline-flex items-center gap-2">
+          Ver todas las experiencias <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-24 px-6 lg:px-16 max-w-7xl mx-auto">
+    <div class="relative h-[400px] rounded-3xl overflow-hidden flex items-center justify-center text-center px-6">
+      <img alt="Reserva tu estancia" class="absolute inset-0 w-full h-full object-cover"
+        src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" />
+      <div class="absolute inset-0 bg-primary/50 backdrop-blur-[2px]"></div>
+      <div class="relative z-10 max-w-2xl">
+        <h2 class="font-display text-4xl md:text-5xl font-semibold text-white mb-6">¿Listo para desconectar?</h2>
+        <p class="text-white/90 mb-10 text-lg">Reserva hoy tu estancia y sumérgete en el paraíso de la serenidad
+          moderna.</p>
+        <a routerLink="/login"
+          class="bg-secondary text-on-secondary px-12 py-4 rounded-full font-medium text-sm hover:bg-on-secondary-container transition-all shadow-xl hover:-translate-y-1 inline-block">Acceder
+          al Sistema</a>
+      </div>
+    </div>
+  </section>
+
+  <app-public-footer></app-public-footer>
+
+</div>

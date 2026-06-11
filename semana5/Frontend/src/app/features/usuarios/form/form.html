@@ -1,0 +1,126 @@
+<div class="max-w-3xl mx-auto">
+  <div class="mb-6 flex items-center gap-4">
+    <a routerLink="/usuarios" class="p-2 text-on-surface-variant hover:text-primary hover:bg-primary-container/10 rounded-full transition-colors inline-flex">
+      <span class="material-symbols-outlined">arrow_back</span>
+    </a>
+    <h2 class="font-display text-3xl font-bold text-primary">{{ isEditMode() ? 'Editar Usuario' : 'Nuevo Usuario' }}</h2>
+  </div>
+
+  <div class="bg-surface rounded-xl shadow-sm border border-outline-variant/30 p-8">
+
+    @if (successMessage()) {
+      <div class="mb-6 p-4 rounded-lg bg-green-100 text-green-800 text-sm flex items-center gap-2">
+        <span class="material-symbols-outlined">check_circle</span>
+        {{ successMessage() }}
+      </div>
+    }
+
+    @if (errorMessage()) {
+      <div class="mb-6 p-4 rounded-lg bg-error-container text-error text-sm flex items-center gap-2">
+        <span class="material-symbols-outlined">error</span>
+        {{ errorMessage() }}
+      </div>
+    }
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Nombre -->
+        <div>
+          <label class="block text-sm font-medium text-on-surface mb-1">Nombre</label>
+          <input type="text" formControlName="nombre" 
+                 class="w-full bg-surface-container-low text-on-surface border-0 border-b-2 border-outline-variant rounded-t-md px-4 py-3 focus:ring-0 focus:border-secondary transition-colors">
+          @if (form.get('nombre')?.touched && form.get('nombre')?.invalid) {
+            <div class="text-error text-xs mt-1">
+              El nombre es requerido.
+            </div>
+          }
+        </div>
+
+        <!-- Apellido -->
+        <div>
+          <label class="block text-sm font-medium text-on-surface mb-1">Apellido</label>
+          <input type="text" formControlName="apellido" 
+                 class="w-full bg-surface-container-low text-on-surface border-0 border-b-2 border-outline-variant rounded-t-md px-4 py-3 focus:ring-0 focus:border-secondary transition-colors">
+          @if (form.get('apellido')?.touched && form.get('apellido')?.invalid) {
+            <div class="text-error text-xs mt-1">
+              El apellido es requerido.
+            </div>
+          }
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label class="block text-sm font-medium text-on-surface mb-1">Correo Electrónico</label>
+          <input type="email" formControlName="email" 
+                 class="w-full bg-surface-container-low text-on-surface border-0 border-b-2 border-outline-variant rounded-t-md px-4 py-3 focus:ring-0 focus:border-secondary transition-colors">
+          @if (form.get('email')?.touched && form.get('email')?.invalid) {
+            <div class="text-error text-xs mt-1">
+              Correo válido requerido.
+            </div>
+          }
+        </div>
+
+        <!-- Teléfono -->
+        <div>
+          <label class="block text-sm font-medium text-on-surface mb-1">Teléfono</label>
+          <input type="text" formControlName="telefono" 
+                 class="w-full bg-surface-container-low text-on-surface border-0 border-b-2 border-outline-variant rounded-t-md px-4 py-3 focus:ring-0 focus:border-secondary transition-colors">
+        </div>
+
+        <!-- Perfil -->
+        <div>
+          <label class="block text-sm font-medium text-on-surface mb-1">Perfil</label>
+          <select formControlName="perfilId"
+                  class="w-full bg-surface-container-low text-on-surface border-0 border-b-2 border-outline-variant rounded-t-md px-4 py-3 focus:ring-0 focus:border-secondary transition-colors">
+            <option value="">Seleccione un perfil</option>
+            @for (p of perfiles(); track p.id) {
+              <option [value]="p.id">{{ p.nombre }}</option>
+            }
+          </select>
+          @if (form.get('perfilId')?.touched && form.get('perfilId')?.invalid) {
+            <div class="text-error text-xs mt-1">
+              Debe seleccionar un perfil.
+            </div>
+          }
+        </div>
+
+        <!-- Estado -->
+        <div class="flex items-center mt-8">
+          <label class="flex items-center gap-3 cursor-pointer">
+            <input type="checkbox" formControlName="activo" class="w-5 h-5 rounded text-primary focus:ring-primary">
+            <span class="text-sm font-medium text-on-surface">Usuario Activo</span>
+          </label>
+        </div>
+
+        <!-- Password -->
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium text-on-surface mb-1">
+            Contraseña {{ isEditMode() ? '(Dejar en blanco para mantener actual)' : '' }}
+          </label>
+          <input type="password" formControlName="password" 
+                 class="w-full bg-surface-container-low text-on-surface border-0 border-b-2 border-outline-variant rounded-t-md px-4 py-3 focus:ring-0 focus:border-secondary transition-colors">
+          @if (form.get('password')?.touched && form.get('password')?.invalid) {
+            <div class="text-error text-xs mt-1">
+              La contraseña debe tener mínimo 6 caracteres.
+            </div>
+          }
+        </div>
+
+      </div>
+
+      <div class="pt-6 border-t border-outline-variant/30 flex justify-end gap-4">
+        <button type="button" routerLink="/usuarios" class="px-6 py-2.5 rounded-lg font-medium text-on-surface-variant hover:bg-surface-container-high transition-colors">
+          Cancelar
+        </button>
+        <button type="submit" [disabled]="form.invalid || isSaving()"
+                class="bg-primary text-on-primary px-8 py-2.5 rounded-lg font-medium hover:bg-primary-container transition-colors disabled:opacity-50 flex items-center gap-2">
+          @if (isSaving()) {
+            <span class="material-symbols-outlined animate-spin text-[20px]">progress_activity</span>
+          }
+          Guardar Usuario
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

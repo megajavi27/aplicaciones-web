@@ -1,0 +1,48 @@
+<div class="bg-surface rounded-xl shadow-sm border border-outline-variant/30 overflow-hidden max-w-4xl mx-auto">
+  <div class="p-6 border-b border-outline-variant/30 bg-surface-container-low">
+    <h2 class="font-display text-2xl font-bold text-primary">Perfiles del Sistema</h2>
+    <p class="text-on-surface-variant text-sm mt-1">Lista de roles y permisos configurados</p>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table class="w-full text-left border-collapse">
+      <thead>
+        <tr class="bg-surface-container-high text-on-surface-variant text-sm border-b border-outline-variant/30">
+          <th class="py-4 px-6 font-semibold w-24">ID</th>
+          <th class="py-4 px-6 font-semibold">Nombre</th>
+          <th class="py-4 px-6 font-semibold">Descripción</th>
+          <th class="py-4 px-6 font-semibold w-32">Estado</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-outline-variant/20">
+        @if (isLoading()) {
+          <tr class="bg-surface">
+            <td colspan="4" class="py-8 text-center text-on-surface-variant">
+              <span class="material-symbols-outlined animate-spin text-primary">progress_activity</span>
+              <p class="mt-2 text-sm">Cargando perfiles...</p>
+            </td>
+          </tr>
+        }
+        @if (!isLoading() && perfiles().length === 0) {
+          <tr class="bg-surface">
+            <td colspan="4" class="py-8 text-center text-on-surface-variant">
+              No se encontraron perfiles.
+            </td>
+          </tr>
+        }
+        @for (p of perfiles(); track p.id) {
+          <tr class="hover:bg-surface-container-low/50 transition-colors">
+            <td class="py-4 px-6 text-on-surface-variant">#{{ p.id }}</td>
+            <td class="py-4 px-6 font-medium text-on-surface">{{ p.nombre }}</td>
+            <td class="py-4 px-6 text-on-surface-variant text-sm">{{ p.descripcion || 'Sin descripción' }}</td>
+            <td class="py-4 px-6">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                Activo
+              </span>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
