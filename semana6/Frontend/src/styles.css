@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Montserrat', sans-serif; background-color: #fbf9f8; color: #1b1c1c; }

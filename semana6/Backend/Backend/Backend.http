@@ -1,0 +1,50 @@
+@Backend_HostAddress = http://localhost:5093
+
+### LOGIN - credenciales válidas
+POST {{Backend_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@hotel.com",
+  "password": "123456"
+}
+
+###
+
+### LOGIN - credenciales inválidas (espera 401)
+POST {{Backend_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "noexiste@hotel.com",
+  "password": "wrong"
+}
+
+###
+
+### LOGIN - validación de modelo (espera 400)
+POST {{Backend_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "no-es-un-email",
+  "password": "12"
+}
+
+###
+
+### ME - valida sesión desde el backend (requiere cookie auth_token)
+# Ejecutar después del login exitoso
+GET {{Backend_HostAddress}}/api/auth/me
+
+###
+
+### LOGOUT - cierra sesión y limpia cookies (requiere cookie auth_token)
+POST {{Backend_HostAddress}}/api/auth/logout
+
+###
+
+### USUARIOS - ruta protegida (espera 401 sin sesión activa)
+GET {{Backend_HostAddress}}/api/usuario
+
+###

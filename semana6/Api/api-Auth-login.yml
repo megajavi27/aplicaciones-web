@@ -1,0 +1,22 @@
+info:
+  name: /api/Auth/login
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: https://localhost:7160/api/Auth/login
+  body:
+    type: json
+    data: |-
+      {
+        "email": "javinoboa@uniandes.com",
+        "password": "jabito"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
