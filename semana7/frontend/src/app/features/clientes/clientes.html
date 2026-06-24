@@ -1,0 +1,37 @@
+
+<div class="table-responsive custom-table-container shadow-sm">
+  <table class="table table-hover custom-table mb-0">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Cedula</th>
+        <th scope="col">Nombres</th>
+        <th scope="col">Direccion</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (cl of listaClientes; track cl.id; let idx = $index, e = $even) {
+        <tr>
+          <td><span class="badge badge-custom bg-success-soft text-success">{{ idx + 1 }}</span></td>
+          <th scope="row" class="fw-bold text-muted">{{ cl.cedula }}</th>
+          <td>
+            <div class="d-flex align-items-center">
+              <span>{{ cl.nombres }}</span>
+            </div>
+          </td>
+          <td>{{ cl.direccion }}</td>
+          <td>{{ cl.telefono }}</td>
+          <td class="fw-semibold text-dark">{{ cl.correo }}</td>
+          <td>
+            <button (click)="generarFactura(cl.id)">Factura</button>
+            <button>Editar</button>
+            <button>Eliminar</button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

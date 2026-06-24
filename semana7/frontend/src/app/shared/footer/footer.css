@@ -1,0 +1,85 @@
+/* Contenedor principal del footer */
+.footer-elegant {
+  background-color: #070b12;
+  font-size: 0.9rem;
+}
+
+.small-text {
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.text-spacing {
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+}
+
+/* Color de acento para los títulos */
+.text-info-custom {
+  color: #00c6ff;
+}
+
+/* Enlaces del Footer */
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #a0aec0;
+  text-decoration: none;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+  padding-left: 4px; /* Efecto dinámico juvenil */
+}
+
+/* Input de suscripción personalizado */
+.bg-dark-input {
+  background-color: #151c2c;
+  color: #ffffff;
+  border-radius: 20px 0 0 20px !important;
+}
+
+.bg-dark-input:focus {
+  background-color: #1a2336;
+  box-shadow: none;
+  color: #ffffff;
+}
+
+.placeholder-muted::placeholder {
+  color: #637381;
+}
+
+/* Botón de la flecha */
+.btn-gradient-arrow {
+  background: linear-gradient(135deg, #0072ff 0%, #00c6ff 100%);
+  color: white;
+  border: none;
+  border-radius: 0 20px 20px 0 !important;
+  transition: background 0.3s ease;
+}
+
+.btn-gradient-arrow:hover {
+  filter: brightness(1.1);
+  color: white;
+}
+
+/* Redes Sociales */
+.footer-icon-link {
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.2s ease;
+}
+
+.footer-icon-link:hover {
+  color: #00c6ff !important;
+}
+
+/* Reutilización del gradiente del header */
+.text-gradient {
+  background: linear-gradient(135deg, #00dbde 0%, #fc00ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

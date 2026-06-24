@@ -1,0 +1,62 @@
+/* Fondo oscuro formal y profundo */
+.bg-dark-elegant {
+  background-color: #0b111e !important;
+}
+
+/* Espaciado de letras para el Logo */
+.tracking-wide {
+  letter-spacing: 1.5px;
+  font-size: 1.4rem;
+}
+
+/* Gradiente para el toque juvenil */
+.text-gradient {
+  background: linear-gradient(135deg, #00dbde 0%, #fc00ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Links del menú con transición suave */
+.nav-custom-link {
+  color: #a0aec0 !important;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+  position: relative;
+}
+
+.nav-custom-link:hover, .nav-custom-link.active {
+  color: #ffffff !important;
+}
+
+/* Línea sutil decorativa debajo al hacer hover (exclusivo desktop) */
+@media (min-width: 992px) {
+  .nav-custom-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #00dbde;
+    transition: width 0.3s ease;
+  }
+  .nav-custom-link:hover::after, .nav-custom-link.active::after {
+    width: 100%;
+  }
+}
+
+/* Botón moderno con degradado */
+.btn-gradient {
+  background: linear-gradient(135deg, #0072ff 0%, #00c6ff 100%);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 114, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 114, 255, 0.5);
+  color: white;
+}

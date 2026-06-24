@@ -1,0 +1,10 @@
+/* Estilos globales para dar el toque formal y juvenil */
+body {
+  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+.universal-layout {
+  background: linear-gradient(180deg, #ffffff 0%, #f4f6f9 100%);
+}
